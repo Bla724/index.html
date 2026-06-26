@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civica Nova - Pagina di Benvenuto</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f6f8;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #123c69;
+    }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #123c69;
+    }
+
+    .hero {
+      min-height: 85vh;
+      background: linear-gradient(135deg, #123c69, #2a9d8f);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 8%;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: white;
+      color: #123c69;
+      padding: 14px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background-color: #e8eef6;
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #123c69;
+      font-size: 38px;
+      margin-bottom: 25px;
+    }
+
+    .intro {
+      background-color: white;
+      text-align: center;
+    }
+
+    .intro p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 20px;
+    }
+
+    .cards-section {
+      background-color: #f4f6f8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 32px;
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      color: #123c69;
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .about {
+      background-color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .fake-image {
+      height: 380px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #dbeafe, #99f6e4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #123c69;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .about-text h2 {
+      color: #123c69;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .news {
+      background-color: #f4f6f8;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .news-card {
+      background-color: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    .news-image {
+      height: 170px;
+      background: linear-gradient(135deg, #123c69, #2a9d8f);
+    }
+
+    .news-card-content {
+      padding: 25px;
+    }
+
+    .news-card span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .news-card h3 {
+      color: #123c69;
+      margin: 10px 0;
+    }
+
+    .contact {
+      background-color: #123c69;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    footer {
+      background-color: #111827;
+      color: white;
+      padding: 40px 8%;
+      text-align: center;
+    }
+
+    footer p {
+      color: #d1d5db;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Civica Nova</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#idee">Idee</a>
+      <a href="#progetto">Progetto</a>
+      <a href="#notizie">Notizie</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Benvenuti su Civica Nova</h1>
+      <h2>Un progetto immaginario per una comunità più aperta e partecipativa.</h2>
+      <p>
+        Questa è una pagina web dimostrativa, creata solo come esempio.
+        Tutti i contenuti sono fittizi e non fanno riferimento a persone reali.
+      </p>
+      <a href="#idee" class="button">Scopri di più</a>
+    </div>
+  </section>
+
+  <section class="intro">
+    <h2 class="section-title">Una pagina semplice, pulita e moderna</h2>
+    <p>
+      Questo sito può essere usato come base per imparare come funziona una pagina web.
+      Contiene un menu, una sezione iniziale, alcuni blocchi informativi,
+      una parte dedicata alle notizie e un footer finale.
+    </p>
+  </section>
+
+  <section class="cards-section" id="idee">
+    <h2 class="section-title">Le nostre idee</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Partecipazione</h3>
+        <p>
+          Creare spazi dove le persone possano confrontarsi, proporre idee
+          e contribuire alla vita della comunità.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Dialogo</h3>
+        <p>
+          Favorire un confronto rispettoso, costruttivo e aperto tra cittadini,
+          associazioni e istituzioni.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Innovazione</h3>
+        <p>
+          Immaginare strumenti semplici e accessibili per migliorare la comunicazione
+          e la collaborazione.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Comunità</h3>
+        <p>
+          Valorizzare il legame tra persone, territorio e progetti comuni.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="progetto">
+    <div class="fake-image">
+      Immagine dimostrativa<br>
+      senza foto personali
+    </div>
+
+    <div class="about-text">
+      <h2>Il progetto</h2>
+      <p>
+        Civica Nova è un nome inventato per questa pagina di prova.
+        Il testo, le sezioni e le notizie sono esempi generici pensati
+        per mostrare come potrebbe apparire un piccolo sito istituzionale
+        o associativo.
+      </p>
+      <br>
+      <p>
+        Nessuna informazione personale è presente nel codice. Non ci sono nomi reali,
+        indirizzi email reali, numeri di telefono, immagini personali o collegamenti
+        a profili social.
+      </p>
+    </div>
+  </section>
+
+  <section class="news" id="notizie">
+    <h2 class="section-title">Ultime notizie</h2>
+
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-image"></div>
+        <div class="news-card-content">
+          <span>Data fittizia</span>
+          <h3>Primo incontro pubblico</h3>
+          <p>
+            Una breve notizia dimostrativa su un evento immaginario
+            dedicato alla partecipazione civica.
+          </p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-image"></div>
+        <div class="news-card-content">
+          <span>Data fittizia</span>
+          <h3>Nuovo laboratorio di idee</h3>
+          <p>
+            Un esempio di aggiornamento che potrebbe apparire
+            nella sezione notizie di un sito reale.
+          </p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-image"></div>
+        <div class="news-card-content">
+          <span>Data fittizia</span>
+          <h3>Progetto comunitario</h3>
+          <p>
+            Una terza notizia fittizia per mostrare la disposizione
+            delle schede nella pagina.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contatti">
+    <h2>Contatti</h2>
+    <p>
+      Questa sezione è dimostrativa. Non contiene indirizzi reali.
+      Per un sito pubblico, qui si potrebbe inserire un indirizzo email,
+      un formulario o un link istituzionale.
+    </p>
+  </section>
+
+  <footer>
+    <h3>Civica Nova</h3>
+    <p>Sito dimostrativo senza dati personali.</p>
+    <p>© 2026 - Esempio fittizio</p>
+  </footer>
+
+</body>
+</html>
